@@ -81,6 +81,9 @@ using SkUniqueFTSize = std::unique_ptr<FT_SizeRec, SkFunctionObject<FT_Done_Size
 #    define SK_FREETYPE_MINIMUM_RUNTIME_VERSION ((2 << 24) | (8 << 16) | (1 << 8) | (SK_FREETYPE_DLOPEN))
 #  endif
 #endif
+#if SK_FREETYPE_MINIMUM_RUNTIME_VERSION & SK_FREETYPE_DLOPEN
+#  include <dlfcn.h>
+#endif
 
 #ifdef TT_SUPPORT_COLRV1
 // FT_ClipBox and FT_Get_Color_Glyph_ClipBox introduced VER-2-11-0-18-g47cf8ebf4
